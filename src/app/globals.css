@@ -1,42 +1,36 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
+/* Basic Reset */
 * {
-  box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+/* Body and global styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+/* Root variables for light and dark themes */
+:root {
+  --primary-color: #3b82f6; 
+  --primary-hover: #2563eb;
+  --sidebar-bg: #f8fafc; 
+  --text-color: #1f2937; 
+  --border-color: #e5e7eb;
+  --overlay-bg: rgba(0, 0, 0, 0.5); 
+  --background-color: #ffffff; 
 }
+
+[data-theme="dark"] {
+  --primary-color: #60a5fa; 
+  --primary-hover: #3b82f6; 
+  --sidebar-bg: #1f2937;
+  --text-color: #f9fafb; 
+  --border-color: #374151; 
+  --overlay-bg: rgba(0, 0, 0, 0.7); 
+  --background-color: #111827; 
+}
+

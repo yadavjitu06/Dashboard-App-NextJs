@@ -1,16 +1,23 @@
 import "./globals.css";
 
-import React from "react"; 
+import React from "react";
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+import SidebarLayout from "@/components/sidebarLayout/SidebarLayout";
+
+
+
+const RootLayout= () => {
   return (
-    <>
-      This is My Side Bar
-      {children}
-    </>
+    <html lang="en">
+      <body>
+        <SidebarLayout></SidebarLayout>
+      </body>
+    </html>
   );
-}
+};
+
+export default RootLayout;
+
+
+
+
