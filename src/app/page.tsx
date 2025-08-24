@@ -1,8 +1,11 @@
 
-import styles from "./page.module.css";
+import "./page.module.css";
+
+import React from "react"; 
 
 export default function Home() {
   return (
-    <>DashBoard App</>
+    <div>DashBoard App</div>
   );
 }
+
