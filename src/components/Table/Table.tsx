@@ -49,7 +49,7 @@ const Table = () => {
 
   return (
     <div className={styles.tableContainer}>
-      <h2 className={styles.title}>Table Data</h2>
+      <h2 className={styles.tableTitle}>Table Data</h2>
 
       <table className={styles.table}>
         <thead>
