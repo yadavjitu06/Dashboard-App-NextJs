@@ -1,0 +1,84 @@
+/*  Calendar Styles */
+.calendarContainer {
+  background: #f9fafb;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #111827;
+}
+
+.navBtn {
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #4b5563;
+  transition: color 0.2s ease;
+}
+
+.navBtn:hover {
+  color: #2563eb;
+}
+
+.monthLabel {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.weekDays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #6b7280;
+  text-align: center;
+}
+
+.weekDay {
+  font-weight: 500;
+}
+
+.daysGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+}
+
+.dayCell {
+  position: relative;
+  height: 60px;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  text-align: center;
+  padding-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #374151;
+}
+
+.today {
+  border: 2px solid #2563eb;
+  font-weight: 600;
+  color: #2563eb;
+}
+
+.eventDot {
+  height: 6px;
+  width: 6px;
+  background-color: #2563eb;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+}

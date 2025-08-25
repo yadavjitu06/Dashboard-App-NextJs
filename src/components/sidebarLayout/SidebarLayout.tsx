@@ -1,26 +1,24 @@
-
 "use client";
-//css imports
-import "./SidebarLayout.css";
-
 import Link from "next/link";
-import React from "react";
-import { ReactNode, useEffect,useState } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 
-// Interface for component props
+import styles from "@/components/sidebarLayout/SidebarLayout.module.css";
+
+import Button from "../Button/Button";
+
 interface SidebarLayoutProps {
   children?: ReactNode;
 }
 
-// SidebarLayout component with TypeScript and clean code
 const SidebarLayout: React.FC<SidebarLayoutProps> = ({ children }) => {
-  // State for sidebar visibility and theme
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
   const [theme, setTheme] = useState<"dark" | "light">("dark");
 
-  // Initialize theme from localStorage
   useEffect(() => {
-    const savedTheme = localStorage.getItem("app-theme") as "dark" | "light" | null;
+    const savedTheme = localStorage.getItem("app-theme") as
+      | "dark"
+      | "light"
+      | null;
     if (savedTheme) {
       setTheme(savedTheme);
       document.documentElement.setAttribute("data-theme", savedTheme);
@@ -29,88 +27,83 @@ const SidebarLayout: React.FC<SidebarLayoutProps> = ({ children }) => {
     }
   }, []);
 
-  // Toggle sidebar visibility
-  const toggleSidebar = (): void => {
-    setIsSidebarOpen((prev) => !prev);
-  };
-
-  // Toggle theme and save to localStorage
+  const toggleSidebar = (): void => setIsSidebarOpen((prev) => !prev);
   const toggleTheme = (): void => {
     const newTheme = theme === "dark" ? "light" : "dark";
     setTheme(newTheme);
     localStorage.setItem("app-theme", newTheme);
     document.documentElement.setAttribute("data-theme", newTheme);
   };
-
-  // Close sidebar on overlay click
-  const handleOverlayClick = (): void => {
-    setIsSidebarOpen(false);
-  };
+  const handleOverlayClick = (): void => setIsSidebarOpen(false);
 
   return (
-    <div className="layout-container">
-      {/* Overlay for mobile when sidebar is open */}
+    <div className={styles["layout-container"]}>
       {isSidebarOpen && (
         <div
-          className="sidebar-overlay"
+          className={styles["sidebar-overlay"]}
           onClick={handleOverlayClick}
           aria-hidden="true"
         />
       )}
 
-      {/* Sidebar */}
-      <aside className={`sidebar ${isSidebarOpen ? "sidebar-open" : ""}`}>
-        <div className="sidebar-header">
-          <div className="app-title">
+      <aside
+        className={`${styles.sidebar} ${
+          isSidebarOpen ? styles["sidebar-open"] : ""
+        }`}
+      >
+        <div className={styles["sidebar-header"]}>
+          <div className={styles["app-title"]}>
             <h3>Dashboard</h3>
             <button
-              className="theme-toggle"
+              className={styles["theme-toggle"]}
               onClick={toggleTheme}
-              aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+              aria-label={`Switch to ${
+                theme === "dark" ? "light" : "dark"
+              } mode`}
             >
               {theme === "dark" ? "☀️" : "🌙"}
             </button>
           </div>
         </div>
 
-        {/* Navigation */}
-        <nav className="sidebar-nav">
+        <nav className={styles["sidebar-nav"]}>
           <ul>
             <li>
-              <Link href="/" className="nav-link active">
+              <Link
+                href="/"
+                className={`${styles["nav-link"]} ${styles.active}`}
+              >
                 Home
               </Link>
             </li>
             <li>
-              <Link href="/dashboard" className="nav-link">
+              <Link href="/" className={styles["nav-link"]}>
                 Dashboard
               </Link>
             </li>
             <li>
-              <Link href="/create-ticket" className="nav-link">
+              <Link href="/create-ticket" className={styles["nav-link"]}>
                 Create Ticket
               </Link>
             </li>
             <li>
-              <Link href="/users" className="nav-link">
+              <Link href="/users" className={styles["nav-link"]}>
                 All Users
               </Link>
             </li>
           </ul>
         </nav>
 
-        {/* Footer buttons */}
-        <div className="sidebar-footer">
-          <button className="custom-btn custom-btn-primary">Login</button>
-          <button className="custom-btn custom-btn-secondary">Signup</button>
+        <div className={styles["sidebar-footer"]}>
+          <Button variant="primary">Login</Button>
+          <Button variant="secondary">Signup</Button>
         </div>
       </aside>
 
-      {/* Hamburger menu (hidden when sidebar is open) */}
       {!isSidebarOpen && (
         <header>
           <button
-            className="menu-toggle"
+            className={styles["menu-toggle"]}
             onClick={toggleSidebar}
             aria-label="Open sidebar menu"
           >
@@ -129,8 +122,7 @@ const SidebarLayout: React.FC<SidebarLayoutProps> = ({ children }) => {
         </header>
       )}
 
-      {/* Main content */}
-      <main className="ml-64 p-4">{children}</main>
+      <main className={styles.main}>{children}</main>
     </div>
   );
 };
