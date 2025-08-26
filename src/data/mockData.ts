@@ -124,6 +124,7 @@ export const mockEvents: CalendarEvent[] = [
   { date: new Date(2023, 3, 28), title: "Quarterly Review" },
   { date: new Date(2023, 4, 5), title: "Board Presentation" },
   { date: new Date(2023, 4, 10), title: "Hackathon" },
+  { date: new Date(2025, 8, 25), title: "Project Deadline" },
 ];
 // KPI Cards
 export interface KPIData {
