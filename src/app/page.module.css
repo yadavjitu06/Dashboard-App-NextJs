@@ -7,6 +7,39 @@
 
 
 
+/* Header Row for Title + Toggle */
+.headerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  background: none;
+  border: 2px solid var(--border-primary);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+  font-size: 18px;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus {
+  border-color: var(--color-primary);
+  background: var(--bg-tertiary);
+  outline: none;
+}
+
+
+
 .dashboard {
   flex: 1;
   max-width: 1200px;
